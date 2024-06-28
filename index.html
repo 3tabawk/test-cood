@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .overlay {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            background-color: rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+        }
+        .message {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            max-width: 80%;
+            text-align: center;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="overlay" id="overlay" onclick="closeOverlay()">
+    <div class="message">
+        <h1> im sorry ? </h1>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("mousedown", function (event) {
+            if (event.button === 3) { // Right mouse button (MB4)
+                document.getElementById("overlay").style.display = "flex";
+            }
+        });
+    });
+
+    function closeOverlay() {
+        document.getElementById("overlay").style.display = "none";
+    }
+</script>
+
+</body>
+</html>
